@@ -1,0 +1,31 @@
+@startuml
+
+class Empleado {
+    -Integer id;
+    -List<Empleado> subordinados
+}
+Empleado -->"*" Empleado
+
+
+
+entity "Empleado" as empleado {
+    *id : Int <<PK>>
+}
+
+entity "empleado_composicion" as empleado_composicion {
+    *subordinado_id : Int <<PK,FK>>
+    *jefe_id : Int <<PK,FK>>
+}
+
+empleado_composicion }o--left|| empleado
+empleado_composicion }o--|| empleado
+
+
+
+@enduml
+
+entity "Empleado" as empleado {
+    *id : Int <<PK>>
+    *jefe_id : Int <<FK>>
+}
+empleado }o--|| empleado

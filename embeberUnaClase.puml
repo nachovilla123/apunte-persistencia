@@ -1,0 +1,27 @@
+@startuml
+
+package "Modelo de Objetos" {
+  class Persona {
+    -Integer id
+    -String nombre
+    -Direccion direccion
+  }
+
+  class Direccion {
+    -String calle
+    -String altura
+  }
+
+  Persona --> Direccion
+}
+
+package "Modelo Relacional (Base de Datos)" {
+  entity Persona {
+    +id: int [PK]
+    +nombre: varchar(75)
+    +calle: varchar(75)
+    +altura: varchar(75)
+  }
+}
+
+@enduml

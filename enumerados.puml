@@ -1,0 +1,29 @@
+@startuml
+
+package "Modelo de Objetos" {
+  class Persona {
+    - Integer id;
+    -RolEnLaComunidad rolEnLaComunidad
+  }
+
+    Persona --> RolEnLaComunidad
+  enum RolEnLaComunidad {
+    LIDER
+    MIEMBRO
+    INVITADO
+  }
+}
+
+package "Modelo Relacional (Base de Datos)" {
+
+  entity Persona {
+    +id: int [PK]
+    +rolEnComunidad: varchar(15)
+  }
+
+}
+
+
+@enduml
+
+

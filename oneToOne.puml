@@ -1,0 +1,31 @@
+@startuml
+package "Diagrama de clases" {
+    class Empleado {
+        +id: Integer
+        +perfil: Perfil
+    }
+
+    class Perfil {
+        +id: Integer
+        +biografia: String
+        +redSocial: String
+    }
+
+    Empleado --> Perfil
+}
+package "Modelo de Datos" {
+    entity "Empleado" as empleado {
+        +id: int
+        +perfil_id: int
+    }
+
+    entity "Perfil" as perfil {
+        +id: int
+        +biografia: varchar(50)
+        +redSocial: varchar(50)
+    }
+
+    empleado ||--|| perfil
+
+}
+@enduml

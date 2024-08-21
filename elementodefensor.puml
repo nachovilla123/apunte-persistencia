@@ -1,0 +1,19 @@
+@startuml
+Personaje --right> ElementoDefensor
+class Personaje {
+   List<ElementoDefensor> elementosDefensores
+}
+
+interface ElementoDefensor {
+   void defenderA(Personaje personaje)
+}
+
+class Arco implements ElementoDefensor {
+   void defenderA(Personaje personaje)
+}
+class Escudo implements ElementoDefensor {
+   void defenderA(Personaje personaje)
+}
+
+@enduml
+

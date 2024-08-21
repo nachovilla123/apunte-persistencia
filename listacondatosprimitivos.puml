@@ -1,0 +1,25 @@
+@startuml
+
+package "Modelo de Objetos" {
+  class Persona {
+    -Integer id
+    -String nombre
+    -List<String> emails
+  }
+}
+
+package "Modelo Relacional (Base de Datos)" {
+  entity persona {
+    +id: int [PK]
+    +nombre: varchar(70)
+  }
+
+  entity persona_emails {
+    +persona_id: int [FK]
+    +email: varchar(255)
+  }
+
+  persona ||--o{ persona_emails
+}
+
+@enduml

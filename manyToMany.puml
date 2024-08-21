@@ -1,0 +1,37 @@
+@startuml
+package "Diagrama de clases" {
+    class Producto {
+        +id: Integer
+        +categorias: Set<Categoria>
+    }
+
+    class Categoria {
+        +id: Integer
+        +nombre: String
+    }
+
+    Producto --right>"*" Categoria
+
+}
+
+package "Modelo de Datos" {
+    entity "Producto" as producto {
+        +id: int
+    }
+
+    entity "Categoria" as categoria {
+        +id: int
+        +nombre: varchar(50)
+    }
+
+    entity "producto_categoria" as producto_categoria {
+        +producto_id: int <PK,FK>
+        +categoria_id: int <PK,FK>
+    }
+
+    producto_categoria }o--left|| producto
+    producto_categoria }o--right|| categoria
+
+
+}
+@enduml
