@@ -1,0 +1,35 @@
+@startuml
+package "Diagrama de clases" {
+
+    class Cliente {
+        -Integer id;
+        -TipoCliente: tipo
+    }
+
+
+
+    Cliente --right> TipoCliente
+    interface TipoCliente {
+        +darRecompensa(Cliente): Int
+    }
+
+    class ClienteNormal  implements TipoCliente {
+        +darRecompensa(Cliente): Int
+    }
+    class ClientePremium  implements TipoCliente {
+        +darRecompensa(Cliente): Int
+    }
+}
+
+
+package "Modelo de Datos" {
+    entity "cliente" as cliente {
+        +id: INT <PK>
+        +nombre: VARCHAR(50)
+        +tipo: VARCHAR(50)
+    }
+
+}
+
+
+@enduml

@@ -1,0 +1,41 @@
+@startuml
+
+package "Diagrama de Clases" {
+
+    class Personaje {
+        - Integer id
+        - String nombre
+        - List<ElementoDefensor> elementosDefensores
+    }
+
+    interface ElementoDefensor {
+        void DefenderA(Personaje personaje)
+    }
+
+    class Arco implements ElementoDefensor {
+        void DefenderA(Personaje personaje)
+    }
+
+    class Escudo implements ElementoDefensor {
+        void DefenderA(Personaje personaje)
+    }
+
+    Personaje --right> ElementoDefensor
+
+}
+
+package "Modelo de Datos" {
+    entity "Personaje" as PersonajeTable {
+        + id: int
+        + nombre: VARCHAR(70)
+    }
+
+    entity "ElementoDefensor" as ElementoDefensorTable {
+        + personaje_id: int
+        + elemento: VARCHAR(255)
+    }
+
+    PersonajeTable ||--o{ ElementoDefensorTable
+}
+
+@enduml

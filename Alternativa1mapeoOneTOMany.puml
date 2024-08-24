@@ -1,0 +1,29 @@
+@startuml
+package "Diagrama de Clases" {
+    class Servicio {
+        -id: Integer
+        -tareas: List<Tarea>
+    }
+
+    class Tarea {
+        -id: Integer
+        -servicio: Servicio
+    }
+
+    Servicio -->"*" Tarea
+    Tarea --> Servicio
+}
+
+package "Modelo de Datos" {
+    entity "Servicio" as servicio {
+        +id: int
+    }
+
+    entity "Tarea" as tarea {
+        +id: int
+        +servicio_id: int
+    }
+
+    servicio ||--o{ tarea
+}
+@enduml

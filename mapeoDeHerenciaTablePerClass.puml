@@ -1,0 +1,38 @@
+@startuml
+
+package "Diagrama de Clases" {
+    abstract class Reputacion  {
+        +id: Integer
+        +nombre: String
+    }
+
+    class ReputacionRegular extends Reputacion {
+        +AtributoReputacionRegular: String
+    }
+
+    class ReputacionMala extends Reputacion {
+        +atributoReputacionMala: Integer
+    }
+}
+
+package "Modelo de Datos" {
+
+
+    entity "ReputacionRegular" {
+        + id: int <PK>
+        --
+        + nombre: VARCHAR(80)
+        + AtributoReputacionRegular: VARCHAR(255)
+    }
+
+    entity "ReputacionMala" {
+        + id: int <PK>
+        --
+        + nombre: VARCHAR(80)
+        + atributoReputacionMala: int
+    }
+
+
+}
+
+@enduml

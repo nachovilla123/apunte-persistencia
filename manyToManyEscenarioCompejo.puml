@@ -1,0 +1,55 @@
+@startuml
+package "Diagrama de clases" {
+    class Alumno {
+        -id: Integer
+        -nombre: String
+        -cursadas: Set<CursadaMateria>
+    }
+
+    class Materia {
+        -id: Integer
+        -nombre: String
+    }
+
+    class CursadaMateria {
+        -id: Integer
+        -alumno: Alumno
+        -materia: Materia
+
+        -notaPrimerParcial: int
+        -notaSegundoParcial: int
+        -inasistencias: int
+        -aprobo: boolean
+    }
+
+    Alumno --> CursadaMateria
+    CursadaMateria --> Alumno
+    CursadaMateria --> Materia
+}
+
+package "Modelo de Datos" {
+    entity "Alumno" as alumno {
+        +id: int
+        +nombre: varchar(75)
+    }
+
+    entity "Materia" as materia {
+        +id: int
+        +nombre: varchar(75)
+    }
+
+    entity "CursadaMateria" as CursadaMateria {
+        +id: int
+        +alumno_id: int
+        +materia_id: int
+        --
+        +notaPrimerParcial: DECIMAL(5,2)
+        +notaSegundoParcial: DECIMAL(5,2)
+        +inasistencias: int
+        +aprobo: boolean
+    }
+
+    alumno ||--o{ CursadaMateria
+    materia ||--o{ CursadaMateria
+}
+@enduml

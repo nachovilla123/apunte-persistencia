@@ -1,0 +1,24 @@
+@startuml
+package "Diagrama de Clases" {
+    abstract class Persistente {
+        -id: Integer
+        -activo: Boolean
+    }
+
+    class Consumidor {
+        -nombre: String
+        -apellido: String
+    }
+
+    Persistente <|-- Consumidor
+}
+
+package "Modelo de Datos" {
+    entity "Consumidor" as consumidor {
+        +id: int <PK>
+        +activo: boolean
+        +nombre: varchar(75)
+        +apellido: varchar(75)
+    }
+}
+@enduml

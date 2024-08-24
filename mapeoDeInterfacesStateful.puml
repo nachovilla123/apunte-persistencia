@@ -1,0 +1,78 @@
+
+
+@startuml
+package "Diagrama de clases" {
+
+    class Cliente {
+        -Integer id;
+        -TipoCliente: tipo
+    }
+
+    Cliente --right> TipoCliente
+
+    interface TipoCliente {
+        +darRecompensa(Cliente): Int
+    }
+
+    class ClienteNormal  implements TipoCliente {
+        -atributoClienteNormal: String
+        +darRecompensa(Cliente): Int
+    }
+    class ClientePremium  implements TipoCliente {
+        -atributoClientePremium: String
+        +darRecompensa(Cliente): Int
+    }
+}
+
+
+package "Modelo de Datos" {
+    entity "cliente" as cliente {
+        +id: INT <PK>
+        +nombre: VARCHAR(50)
+        +tipo: VARCHAR(50)
+    }
+
+}
+
+
+@enduml
+
+STEP 2 (HACER CLICK SOBRE EL CODIGO PARA RENDERIZAR EL DIAGRAMA)
+@startuml
+package "Diagrama de clases" {
+
+    class Cliente {
+        -Integer id;
+        -TipoCliente: tipo
+    }
+
+    Cliente --right> TipoCliente
+
+    abstract class TipoCliente {
+        +darRecompensa(Cliente): Int
+    }
+
+    class ClienteNormal extends TipoCliente {
+        -atributoClienteNormal: String
+        +darRecompensa(Cliente): Int
+    }
+    class ClientePremium extends TipoCliente {
+        -atributoClientePremium: String
+        +darRecompensa(Cliente): Int
+    }
+}
+
+
+package "Modelo de Datos" {
+    entity "cliente" as cliente {
+        +id: INT <PK>
+        +nombre: VARCHAR(50)
+        +tipo: VARCHAR(50)
+    }
+
+}
+
+
+@enduml
+
+

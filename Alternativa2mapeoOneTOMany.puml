@@ -1,0 +1,27 @@
+@startuml
+package "Diagrama de Clases" {
+    class Persona {
+        -id: Integer
+        -disponibilidades: List<Disponibilidad>
+    }
+
+    class Disponibilidad {
+        -id: Integer
+    }
+
+    Persona -->"*" Disponibilidad
+}
+
+package "Modelo de Datos" {
+    entity "Persona" as persona {
+        +id: int
+    }
+
+    entity "Disponibilidad" as disponibilidad {
+        +id: int
+        +prestador_id: int
+    }
+
+    persona ||--o{ disponibilidad
+}
+@enduml

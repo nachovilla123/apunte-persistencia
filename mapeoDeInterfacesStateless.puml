@@ -1,0 +1,49 @@
+@startuml
+package "Diagrama de clases" {
+    interface AlgoritmoRecomendacionOfertas {
+        +recomendarOfertas(cliente: Cliente)
+    }
+
+    class AlgoritmoRecomendacionBasadoEnHistorial {
+        +recomendarOfertas(cliente: Cliente)
+    }
+
+    class AlgoritmoRecomendacionBasadoEnPreferencias {
+        +recomendarOfertas(cliente: Cliente)
+    }
+
+    AlgoritmoRecomendacionOfertas <|-- AlgoritmoRecomendacionBasadoEnHistorial
+    AlgoritmoRecomendacionOfertas <|-- AlgoritmoRecomendacionBasadoEnPreferencias
+
+    class Cliente {
+        -Integer id;
+        -algoritmoRecomendacion: AlgoritmoRecomendacionOfertas
+    }
+
+    Cliente --> AlgoritmoRecomendacionOfertas
+
+    Cliente --> TipoCliente
+    interface TipoCliente {
+        +darRecompensa(): Int
+    }
+
+    class ClienteNormal  implements TipoCliente {
+        +darRecompensa(): Int
+    }
+    class ClientePremium  implements TipoCliente {
+        +darRecompensa(): Int
+    }
+}
+
+
+package "Modelo de Datos" {
+    entity "cliente" as cliente {
+        +id: INT <PK>
+        +nombre: VARCHAR(50)
+        +algoritmoRecomendacion: VARCHAR(50)
+    }
+
+}
+
+
+@enduml

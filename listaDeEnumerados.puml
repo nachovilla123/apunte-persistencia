@@ -1,0 +1,31 @@
+@startuml
+
+package "Diagrama de Clases" {
+    class Persona {
+        - Integer id
+        - List<EstadoPersona> estados
+    }
+
+    enum EstadoPersona {
+        FELIZ
+        TEMEROSO
+        ABURRIDO
+    }
+
+    Persona -->"*" EstadoPersona
+}
+
+package "Modelo de Datos" {
+    entity "persona" as Persona {
+        +id: int
+    }
+
+    entity "persona_estado" as PersonaEstado {
+        +persona_id: int
+        +estado: VARCHAR(50)
+    }
+
+    Persona ||--o{ PersonaEstado
+}
+
+@enduml
