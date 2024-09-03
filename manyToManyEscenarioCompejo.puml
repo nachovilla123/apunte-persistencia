@@ -29,24 +29,24 @@ package "Diagrama de clases" {
 
 package "Modelo de Datos" {
     entity "Alumno" as alumno {
-        +id: int
-        +nombre: varchar(75)
+        *id: int
+        *nombre: varchar(75)
     }
 
     entity "Materia" as materia {
-        +id: int
-        +nombre: varchar(75)
+        *id: int
+        *nombre: varchar(75)
     }
 
     entity "CursadaMateria" as CursadaMateria {
-        +id: int
-        +alumno_id: int
-        +materia_id: int
+        *id: int <<PK>>
+        *alumno_id: int <<FK>>
+        *materia_id: int <<FK>>
         --
-        +notaPrimerParcial: DECIMAL(5,2)
-        +notaSegundoParcial: DECIMAL(5,2)
-        +inasistencias: int
-        +aprobo: boolean
+        *notaPrimerParcial: int
+        *notaSegundoParcial: int
+        *inasistencias: int
+        *aprobo: boolean
     }
 
     alumno ||--o{ CursadaMateria

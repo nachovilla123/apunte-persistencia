@@ -10,13 +10,13 @@ package "Modelo de Objetos" {
 
 package "Modelo Relacional (Base de Datos)" {
   entity persona {
-    +id: int [PK]
-    +nombre: varchar(70)
+    *id: int <<PK>>
+    *nombre: varchar(70)
   }
 
   entity persona_emails {
-    +persona_id: int [FK]
-    +email: varchar(255)
+    *persona_id: int <<FK>>
+    *email: varchar(255)
   }
 
   persona ||--o{ persona_emails

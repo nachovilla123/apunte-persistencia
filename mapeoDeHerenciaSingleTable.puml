@@ -20,11 +20,11 @@ package "Diagrama de Clases" {
 
 package "Modelo de Datos" as modelo {
     entity "Reputacion" as reputacion {
-        +id: BigInt [PK]
-        +nombre: varchar(255)
-        +tipo: varchar(50)
-        +atributoDeMala: varchar(255)
-        +atributoDeRegular: varchar(255)
+        *id: BigInt <<PK>>
+        *nombre: varchar(255)
+        *tipo: varchar(50)
+        *atributoDeMala: varchar(255)
+        *atributoDeRegular: varchar(255)
     }
 
 

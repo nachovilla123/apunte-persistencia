@@ -27,9 +27,9 @@ package "Diagrama de clases" {
 
 package "Modelo de Datos" {
     entity "cliente" as cliente {
-        +id: INT <PK>
-        +nombre: VARCHAR(50)
-        +tipo: VARCHAR(50)
+        *id: INT <<PK>>
+        *nombre: VARCHAR(50)
+        *tipo: VARCHAR(50)
     }
 
 }

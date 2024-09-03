@@ -15,10 +15,10 @@ package "Diagrama de Clases" {
 
 package "Modelo de Datos" {
     entity "Consumidor" as consumidor {
-        +id: int <PK>
-        +activo: boolean
-        +nombre: varchar(75)
-        +apellido: varchar(75)
+        *id: int <<PK>>
+        *activo: boolean
+        *nombre: varchar(75)
+        *apellido: varchar(75)
     }
 }
 @enduml

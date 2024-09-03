@@ -19,17 +19,17 @@ package "Modelo de Datos" {
 
 
     entity "ReputacionRegular" {
-        + id: int <PK>
+        * id: int <<PK>>
         --
-        + nombre: VARCHAR(80)
-        + AtributoReputacionRegular: VARCHAR(255)
+        * nombre: VARCHAR(80)
+        * AtributoReputacionRegular: VARCHAR(255)
     }
 
     entity "ReputacionMala" {
-        + id: int <PK>
+        * id: int <<PK>>
         --
-        + nombre: VARCHAR(80)
-        + atributoReputacionMala: int
+        * nombre: VARCHAR(80)
+        * atributoReputacionMala: int
     }
 
 

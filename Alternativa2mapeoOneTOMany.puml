@@ -14,12 +14,12 @@ package "Diagrama de Clases" {
 
 package "Modelo de Datos" {
     entity "Persona" as persona {
-        +id: int
+        *id: int <<PK>>
     }
 
     entity "Disponibilidad" as disponibilidad {
-        +id: int
-        +prestador_id: int
+        *id: int <<PK>>
+        *prestador_id: int <<FK>>
     }
 
     persona ||--o{ disponibilidad

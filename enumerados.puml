@@ -17,8 +17,8 @@ package "Modelo de Objetos" {
 package "Modelo Relacional (Base de Datos)" {
 
   entity Persona {
-    +id: int [PK]
-    +rolEnComunidad: varchar(15)
+    *id: int <<PK>>
+    *rolEnComunidad: varchar(15)
   }
 
 }

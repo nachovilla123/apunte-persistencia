@@ -17,10 +17,10 @@ package "Modelo de Objetos" {
 
 package "Modelo Relacional (Base de Datos)" {
   entity Persona {
-    +id: int [PK]
-    +nombre: varchar(75)
-    +calle: varchar(75)
-    +altura: varchar(75)
+    *id: int <<PK>>
+    *nombre: varchar(75)
+    *calle: varchar(75)
+    *altura: varchar(75)
   }
 }
 

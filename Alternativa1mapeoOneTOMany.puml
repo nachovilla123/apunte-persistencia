@@ -16,12 +16,12 @@ package "Diagrama de Clases" {
 
 package "Modelo de Datos" {
     entity "Servicio" as servicio {
-        +id: int
+        *id: int <PK>
     }
 
     entity "Tarea" as tarea {
-        +id: int
-        +servicio_id: int
+        *id: int <PK>
+        *servicio_id: int <FK>
     }
 
     servicio ||--o{ tarea

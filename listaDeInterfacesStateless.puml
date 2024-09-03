@@ -26,13 +26,13 @@ package "Diagrama de Clases" {
 
 package "Modelo de Datos" {
     entity "Personaje" as PersonajeTable {
-        + id: int
-        + nombre: VARCHAR(70)
+        * id: int <<PK>>
+        * nombre: VARCHAR(70)
     }
 
     entity "ElementoDefensor" as ElementoDefensorTable {
-        + personaje_id: int
-        + elemento: VARCHAR(255)
+        * personaje_id: int <<FK>>
+        * elemento: VARCHAR(255)
     }
 
     PersonajeTable ||--o{ ElementoDefensorTable

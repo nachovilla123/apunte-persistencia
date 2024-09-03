@@ -17,12 +17,12 @@ package "Diagrama de Clases" {
 
 package "Modelo de Datos" {
     entity "persona" as Persona {
-        +id: int
+        *id: int <<PK>>
     }
 
     entity "persona_estado" as PersonaEstado {
-        +persona_id: int
-        +estado: VARCHAR(50)
+        *persona_id: int <<FK>>
+        *estado: VARCHAR(50)
     }
 
     Persona ||--o{ PersonaEstado

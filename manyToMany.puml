@@ -16,17 +16,17 @@ package "Diagrama de clases" {
 
 package "Modelo de Datos" {
     entity "Producto" as producto {
-        +id: int
+        *id: int <<PK>>
     }
 
     entity "Categoria" as categoria {
-        +id: int
-        +nombre: varchar(50)
+        *id: int <<PK>>
+        *nombre: varchar(50)
     }
 
     entity "producto_categoria" as producto_categoria {
-        +producto_id: int <PK,FK>
-        +categoria_id: int <PK,FK>
+        *producto_id: int <PK,FK>
+        *categoria_id: int <PK,FK>
     }
 
     producto_categoria }o--left|| producto

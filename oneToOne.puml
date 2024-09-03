@@ -15,14 +15,14 @@ package "Diagrama de clases" {
 }
 package "Modelo de Datos" {
     entity "Empleado" as empleado {
-        +id: int
-        +perfil_id: int
+        *id: int <<PK>>
+        *perfil_id: int <<FK>>
     }
 
     entity "Perfil" as perfil {
-        +id: int
-        +biografia: varchar(50)
-        +redSocial: varchar(50)
+        *id: int <<PK>>
+        *biografia: varchar(50)
+        *redSocial: varchar(50)
     }
 
     empleado ||--|| perfil

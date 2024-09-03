@@ -18,18 +18,18 @@ package "Diagrama de Clases" {
 
 package "Modelo de Datos" {
     entity "Reputacion" as ReputacionTable {
-        + id: int <PK>
-        + nombre: VARCHAR(80)
+        * id: int <<PK>>
+        * nombre: VARCHAR(80)
     }
 
     entity "ReputacionRegular" as ReputacionRegular {
-        + id: int <PK,FK>
-        + atributoRegular: VARCHAR(80)
+        * id: int <<PK,FK>>
+        * atributoRegular: VARCHAR(80)
     }
 
     entity "ReputacionExtrema" as ReputacionExtrema {
-            + id: int <PK,FK>
-            + atributoExtrema: VARCHAR(80)
+            * id: int <<PK,FK>>
+            * atributoExtrema: VARCHAR(80)
         }
 
     ReputacionTable ||--|| ReputacionRegular
